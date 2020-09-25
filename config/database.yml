@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: voltmobi_test_development
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: voltmobi_test_test
+
+production:
+  <<: *default
+  database: voltmobi_test_production
+  username: voltmobi_test
+  password: <%= ENV['VOLTMOBI_TEST_DATABASE_PASSWORD'] %>
