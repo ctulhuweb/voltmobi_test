@@ -34,6 +34,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'factory_bot'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do

@@ -14,8 +14,12 @@ FactoryBot.define do
   end
 
   trait :with_match do
-    after(:create) do |team|
-      FactoryBot.create(:match, team: team)
+    transient do
+      match_count { 1 }
+    end
+
+    after(:create) do |team, evaluator|
+      FactoryBot.create_list(:match, evaluator.match_count, team: team)
     end
   end
 end
